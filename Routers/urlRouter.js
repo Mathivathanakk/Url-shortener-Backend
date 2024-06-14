@@ -9,7 +9,7 @@ import authMiddlewares from "../Middlewares/authMiddleWare.js";
 const router = express.Router();
 
 router.post("/url", authMiddlewares, createShortUrl);
-router.get("/:shortId", authMiddlewares, redirectShortUrl);
+router.get("/:shortId", redirectShortUrl);
 router.get("/urlCount/day/month", authMiddlewares, urlCalculation);
 
 export default router;
