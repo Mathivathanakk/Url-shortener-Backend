@@ -70,11 +70,12 @@ export const urlCalculation = async (req, res) => {
     const monthUrl = await urlShortener.countDocuments({
       date: { $gte: firstDateOfMonth, $lte: lastDateOfMonth },
     });
-    
+    //get all url details
+    const urllist=await urlShortener.find()
 
     res
       .status(200)
-      .json({ urlperday: todayUrl, urlpermonth: monthUrl});
+      .json({ urlperday: todayUrl, urlpermonth: monthUrl,urllist:urllist});
   } catch (error) {
     console.log(error);
     res.status(500).json({
