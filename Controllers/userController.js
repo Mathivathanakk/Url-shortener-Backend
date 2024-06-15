@@ -110,7 +110,7 @@ export const resetPassword = async (req, res) => {
       .json({ message: "Internal server Error in the reset password" });
   }
 };
-
+//activating the account
 export const activateAccount = async (req, res) => {
   try {
     const { id } = req.params;
@@ -131,7 +131,7 @@ export const activateAccount = async (req, res) => {
       .json({ message: "Internal server Error in the activating the account" });
   }
 };
-
+//getting the user by token
 export const getUser = async (req, res) => {
   try {
     const userId = req.user._id;

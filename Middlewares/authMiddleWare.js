@@ -9,7 +9,7 @@ const authMiddlewares = async (req, res, next) => {
  const token = req.header("Authorization");
  
   if (!token) {
-    return res.status(401).json({ message: "please signup and signin..!!" });
+    return res.status(401).json({ message: "Please SignUp and SignIn..!! If you are user, Please SignIn" });
   }
   try {
     const decode = jwt.verify(token, process.env.JWT_SECRET_KEY);

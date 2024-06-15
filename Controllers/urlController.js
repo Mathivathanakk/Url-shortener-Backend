@@ -6,6 +6,7 @@ import { startOfDay } from "date-fns/startOfDay";
 
 export const createShortUrl = async (req, res) => {
   try {
+    //creating the shorturl by request of fullurl
     const { fullurl } = req.body;
     // console.log(url);
     if (!fullurl) {
@@ -33,7 +34,9 @@ export const createShortUrl = async (req, res) => {
 };
 
 export const redirectShortUrl = async (req, res) => {
+  
   try {
+    // shorturl is redirected
     const shortId = req.params.shortId;
     if (!shortId) {
       res.status(404).json({ message: "Shorturl Not Found" });
@@ -67,13 +70,11 @@ export const urlCalculation = async (req, res) => {
     const monthUrl = await urlShortener.countDocuments({
       date: { $gte: firstDateOfMonth, $lte: lastDateOfMonth },
     });
-    //get the url created list and sorted by ascending order of totalclick
-
-    const urlList = await urlShortener.find().sort({ totalClick: 1 });
+    
 
     res
       .status(200)
-      .json({ urlperday: todayUrl, urlpermonth: monthUrl, urllist: urlList });
+      .json({ urlperday: todayUrl, urlpermonth: monthUrl});
   } catch (error) {
     console.log(error);
     res.status(500).json({

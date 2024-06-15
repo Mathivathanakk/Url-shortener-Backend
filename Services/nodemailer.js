@@ -18,7 +18,7 @@ export const resetpasswordmail = async (user, token, res) => {
     text:
       "You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n" +
       "Please click on the following link, or paste this into your browser to complete the process:\n\n" +
-      `http://localhost:3000/reset-password/${user._id}/${token}`,
+      `https://url-shortener-frontend-mathi.vercel.app/reset-password/${user._id}/${token}`,
   };
   transporter.sendMail(mailOptions, function (error, info) {
     if (error) {
@@ -40,7 +40,7 @@ export const activateAccountNodemailer = async (newUser, res) => {
     text:
       "You are receiving this because you (or someone else) have requested the activate your account.\n\n" +
       "Please click on the following link, or paste this into your browser to complete the process:\n\n" +
-      `http://localhost:3000/activate-account/${newUser._id}`,
+      `https://url-shortener-frontend-mathi.vercel.app/activate-account/${newUser._id}`,
   };
   transporter.sendMail(sendActivateUser, function (error, info) {
     if (error) {
