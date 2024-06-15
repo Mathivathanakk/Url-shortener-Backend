@@ -9,7 +9,7 @@ const authMiddlewares = async (req, res, next) => {
  const token = req.header("Authorization");
  
   if (!token) {
-    return res.status(401).json({ message: "Token Not Found" });
+    return res.status(401).json({ message: "please signup and signin..!!" });
   }
   try {
     const decode = jwt.verify(token, process.env.JWT_SECRET_KEY);
